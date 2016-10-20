@@ -1,0 +1,59 @@
+Lending Club Crowd Loan Yield Maximization
+================
+
+### Springboard Data Science Capstone Project Propsal
+
+by Michael Halpert 10.19.2016
+
+Project Background
+------------------
+
+[Lending Club](https://www.lendingclub.com/public/how-peer-lending-works.action) is a crowd lending platform that enables pools of individual investors to act in the capacity of a bank and make loans to individual borrowers. As such these loans are risky and have default potential. The goal of this project is to understand how to identify risky borrowers, while maximizing yield for the investor.
+
+The Lending Club process is straightforward. A borrower applies for a loan, and then Lending Club posts the application on their platform for individual investors to fund in $25 increments. These micro-loan obligations are called “notes”. Once the borrower’s loan is funded, they are required to make monthly payments of principal and interest on the notes for either a 36 or 60 momth term. Lending club assigns each loan a letter grade and interest rate based on the borrower’s credit-worthiness. The lower risk loans such as “A’s” and “B’s” are much safer, but return a much lower interest rate to lenders, around 3%-4%. Loans with grading’s such as “E”, “F”, and “G” are much riskier, but can yield returns of over 25%.
+
+As an individual investor, Lending Club offers the potential for returns that exceed traditional investments such as bonds, index ETF’s or even individual stocks. However, the risk of default is quite real. Similar to credit cards or other uncollateralized loans, many borrowers miss payments, default or go bankrupt creating a total loss of principal for the investor. The goal of this project is for me to develop an investing methodology for picking the best high yielding notes that offer the lowest probability of default and principal loss.
+
+Data Sources
+------------
+
+Luckily, Lending Club is a very data intense platform and they provide very thorough statistics and structured data on their entire history of loan performance. Their loan data goes back all the way through 2007.
+
+Loan Files:
+- [Loan Data Files](https://www.lendingclub.com/info/download-data.action)
+- [Data Dictionary](https://resources.lendingclub.com/LCDataDictionary.xlsx)
+
+The Loan Data Files include:
+
+-   Borrower demographics, employment and income status
+-   Credit Histories & Credit Scores
+-   Information on existing credit accounts, limits, loan status’, and delinquencies
+-   Loan amounts and purposes
+-   Lending Club repayment histories and late fees
+
+Approach
+--------
+
+The loan data files have incredibly rich information on repayments and defaults spanning back through 2007. As loans can only be borrowed in 36 and 60 month terms, many of the loans from the early year vintages have already reached full maturity. This provides a very rich training set to create a machine learning model that will predict the probability of default or full repyament based on existing history.
+
+I will start my exploration with a statistical analysis of loan defaults. I will seek out high correlations between various loan attributes and outcomes.
+
+My initiail hypothesis for why borrowers default on notes include:
+
+-   High debt to income ratios
+-   Decreases in applicant credit scores
+-   Frivoulous loan purposes, or loans not tied to refinancing/consolidation
+-   Debt consolidation loans that exceed initial debt levels
+-   A history of previous loan delinquiencies
+
+This analysis will help inform the approach on developing a machine learning model that will predict the probability of loan repayment to full maturuty. We can test the validity of this model by rewinding the tape 2 years with a sample data set to see how it would perform with recent historic data. By feeding the model loan application information from 2014-2016, we can see what predictions the model would make on various loans. Since we know how this sample of future data will perform, we can test the validity of the machine learning model.
+
+Deliverables
+------------
+
+The deliverables for this project will include a github repository containing the following:
+
+-   A paper explaining the results of the default analysis, including any approproate charts and diagrams.
+-   Documented code written in R-Markdown explaining the approach of the analysis.
+-   Code for the machine learning model.
+-   A paper that explains the findings and results of the experimentation.
